@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1029288888598",
+    "project_id": "improving-login",
+    "storage_bucket": "improving-login.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029288888598:android:61276e916750e4513ba837",
+        "android_client_info": {
+          "package_name": "improving.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029288888598-1rimhkdhusegnld962ie0mlnkekf8r58.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0x8BDNI_zd_wFtUShqIwXeWRjvceYg50"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029288888598-1rimhkdhusegnld962ie0mlnkekf8r58.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
