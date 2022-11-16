@@ -1,5 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, Text} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {useAuth} from '../contexts/Auth';
 
@@ -13,8 +14,8 @@ const CloseButton = () => {
     <TouchableOpacity
       activeOpacity={0.5}
       onPress={signOut}
-      style={{marginRight: 20}}>
-      <Text style={{color: 'white'}}>Exit</Text>
+      style={{marginRight: 10}}>
+      <Icon name={'exit'} size={30} color={'white'} />
     </TouchableOpacity>
   );
 };

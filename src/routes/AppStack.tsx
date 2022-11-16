@@ -1,9 +1,10 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {HomeScreen} from '../screens/HomeScreen';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import CloseButton from '../buttons/CloseButton';
 import headerStyle from './headerStyle';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'; //FOR IOS
+import IconTab from '../tools';
 
 const Tab = createBottomTabNavigator();
 
@@ -11,17 +12,12 @@ export const AppStack = () => {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
+        showLabel: false, // add this line to hide tab label
         tabBarIcon: ({focused, color, size}) => {
-          let iconName;
-
-          if (route.name === 'Home') {
-            iconName = focused ? 'home' : 'home-outline';
-          } else if (route.name === 'Settings') {
-            iconName = focused ? 'ios-list' : 'ios-list-outline';
-          }
-
-          // You can return any component that you like here!
-          return <Ionicons name={iconName} size={size} color={'red'} />;
+          //TODO: Refactoring ?
+          return (
+            <IconTab name={route.name} focused size={size} color={color} />
+          );
         },
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'gray',
@@ -31,6 +27,8 @@ export const AppStack = () => {
         component={HomeScreen}
         options={{
           tabBarBadge: 3,
+          tabBarLabel: 'Home',
+          headerTitle: '',
           headerShadowVisible: false,
           headerStyle: headerStyle,
           headerRight: () => <CloseButton />,
@@ -39,9 +37,26 @@ export const AppStack = () => {
       <Tab.Screen
         name="MyPhotos"
         component={HomeScreen}
-        options={{tabBarBadge: 1}}
+        options={{
+          tabBarLabel: 'Photos',
+          headerTitle: '',
+          tabBarBadge: 1,
+          headerShadowVisible: false,
+          headerStyle: headerStyle,
+          headerRight: () => <CloseButton />,
+        }}
       />
-      <Tab.Screen name="Profile" component={HomeScreen} />
+      <Tab.Screen
+        name="Profile"
+        component={HomeScreen}
+        options={{
+          headerTitle: '',
+          tabBarBadge: 1,
+          headerShadowVisible: false,
+          headerStyle: headerStyle,
+          headerRight: () => <CloseButton />,
+        }}
+      />
     </Tab.Navigator>
   );
 };
