@@ -1,4 +1,3 @@
-import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import FlatListComponent from '../components/FlatList/FlatList';
 
@@ -7,5 +6,3 @@ const PhotoScreen = () => {
 };
 
 export default PhotoScreen;
-
-const styles = StyleSheet.create({});

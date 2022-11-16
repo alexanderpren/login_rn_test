@@ -14,9 +14,9 @@ export const getImages = async () => {
 
 export const getDataPhotos = async page => {
   const response = await axios.get(
-    `https://randomuser.me/api/?page=${page}&results=10&seed=abc`,
+    `https://randomuser.me/api/?page=${page}&results=30&seed=abc`,
   );
   const data: Photos = response.data;
-  
+
   return data;
 };

@@ -51,7 +51,7 @@ const FlatListComponent = () => {
             const fullname = `${title} ${first} ${last}`;
             return (
               <FlatListItem
-                key={`${uuid}${index}`}
+                key={`${uuid}-${index}`}
                 name={fullname}
                 country={country}
                 urlImage={large}

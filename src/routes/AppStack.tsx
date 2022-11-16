@@ -6,6 +6,7 @@ import headerStyle from './headerStyle';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'; //FOR IOS
 import IconTab from '../tools';
 import PhotoScreen from '../screens/PhotoScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -56,7 +57,7 @@ export const AppStack = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={HomeScreen}
+        component={ProfileScreen}
         options={{
           headerTitle: '',
           tabBarBadge: 1,
