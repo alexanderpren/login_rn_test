@@ -1,18 +1,23 @@
 import React, {useState} from 'react';
-import {ActivityIndicator, Button, View} from 'react-native';
+import {Button, View} from 'react-native';
 import {TextInput, Text} from 'react-native-paper';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
-
 import {styles} from './styles';
 import {useAuth} from '../contexts/Auth';
+import {Loading} from '../components/Loading';
+import Title from '../components/Title';
+import CheckBox from '../components/CheckBox';
 
 export const SignInScreen = () => {
   const [loading, isLoading] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
+
   const auth = useAuth();
-  const signIn = async () => {
+
+  const signIn = async ({email, password}) => {
     isLoading(true);
-    await auth.signIn();
+    await auth.signIn(email, password, rememberMe);
   };
 
   const formik = useFormik({
@@ -21,7 +26,8 @@ export const SignInScreen = () => {
       password: '',
     },
     onSubmit: values => {
-      signIn();
+      signIn(values);
+      console.log(values.email, values.password);
     },
     validateOnChange: false,
     validateOnBlur: false,
@@ -36,17 +42,7 @@ export const SignInScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.secondContainer}>
-        <View style={styles.title}>
-          <Text style={styles.textTitle} variant="displaySmall">
-            Welcome
-          </Text>
-        </View>
-        <View style={styles.secondTitle}>
-          <Text style={styles.secondTitleText} variant="titleMedium">
-            Please sign in to your account
-          </Text>
-        </View>
-
+        <Title />
         <TextInput
           style={styles.input}
           error={formik.errors.email ? true : false}
@@ -61,7 +57,7 @@ export const SignInScreen = () => {
           style={styles.input}
           error={formik.errors.password ? true : false}
           secureTextEntry={true}
-          label="password"
+          label="Password"
           value={formik.values.password}
           onChangeText={formik.handleChange('password')}
         />
@@ -69,8 +65,10 @@ export const SignInScreen = () => {
           <Text style={{color: 'red'}}>{formik.errors.password}</Text>
         )}
 
+        <CheckBox checked={rememberMe} setChecked={setRememberMe} />
+
         {loading ? (
-          <ActivityIndicator color={'#000'} animating={true} size="small" />
+          <Loading />
         ) : (
           <Button title="Sign In" onPress={formik.handleSubmit} />
         )}

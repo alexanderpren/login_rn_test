@@ -4,6 +4,7 @@ export type AuthData = {
   name: string;
 };
 const signIn = (email: string, _password: string): Promise<AuthData> => {
+  console.log('Sending HTTP ');
   return new Promise(resolve => {
     setTimeout(() => {
       resolve({

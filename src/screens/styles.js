@@ -9,24 +9,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  title: {
-    color: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  textTitle: {
-    color: 'white',
-  },
-  secondTitle: {
-    color: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 20,
-    marginTop: 5,
-  },
-  secondTitleText: {
-    color: '#666666',
-  },
   input: {
     borderRadius: 10,
     marginRight: 10,
