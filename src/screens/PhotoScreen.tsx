@@ -1,14 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import FlatListComponent from '../components/FlatList/FlatList';
 
 const PhotoScreen = () => {
-  return (
-    <View>
-      <Text>PhotoScreen</Text>
-    </View>
-  )
-}
+  return <FlatListComponent />;
+};
 
-export default PhotoScreen
+export default PhotoScreen;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

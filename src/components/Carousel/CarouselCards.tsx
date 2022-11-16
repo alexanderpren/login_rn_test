@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {View, Dimensions, Text, StyleSheet} from 'react-native';
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import CarouselCardItem, {SLIDER_WIDTH, ITEM_WIDTH} from './CarouselCardItem';
 import {getImages} from '../../services/api';
@@ -7,7 +7,6 @@ import {Loading} from '../../components/Loading';
 import {useQuery} from 'react-query';
 
 const CarouselCards = () => {
-
   const {
     isLoading,
     isError,
@@ -26,7 +25,7 @@ const CarouselCards = () => {
     content = (
       <Carousel
         layout="default"
-        layoutCardOffset={3}
+        layoutCardOffset={1}
         ref={isCarousel}
         data={images?.results}
         renderItem={CarouselCardItem}
@@ -44,6 +43,7 @@ const CarouselCards = () => {
 const styles = StyleSheet.create({
   container: {
     marginTop: 20,
+    flex: 1,
   },
 });
 
