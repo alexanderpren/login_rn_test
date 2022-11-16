@@ -5,6 +5,7 @@ import CloseButton from '../buttons/CloseButton';
 import headerStyle from './headerStyle';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'; //FOR IOS
 import IconTab from '../tools';
+import PhotoScreen from '../screens/PhotoScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -43,7 +44,7 @@ export const AppStack = () => {
       />
       <Tab.Screen
         name="MyPhotos"
-        component={HomeScreen}
+        component={PhotoScreen}
         options={{
           tabBarLabel: 'Photos',
           headerTitle: '',
