@@ -12,7 +12,14 @@ export const AppStack = () => {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
-        showLabel: false, // add this line to hide tab label
+        tabBarStyle: {
+          height: 50,
+          paddingHorizontal: 5,
+          paddingTop: 0,
+          backgroundColor: '#024486',
+          position: 'absolute',
+          borderTopWidth: 0,
+        },
         tabBarIcon: ({focused, color, size}) => {
           //TODO: Refactoring ?
           return (

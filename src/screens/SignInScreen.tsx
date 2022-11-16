@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Button, View} from 'react-native';
 import {TextInput, Text} from 'react-native-paper';
 import {useFormik} from 'formik';
@@ -70,7 +70,9 @@ export const SignInScreen = () => {
         {loading ? (
           <Loading />
         ) : (
-          <Button title="Sign In" onPress={formik.handleSubmit} />
+          <View style={styles.buttonSign}>
+            <Button title="Sign In" onPress={formik.handleSubmit} />
+          </View>
         )}
       </View>
     </View>

@@ -1,3 +1,5 @@
+
+
 export type AuthData = {
   token: string;
   email: string;
@@ -12,7 +14,7 @@ const signIn = (email: string, _password: string): Promise<AuthData> => {
         email: email,
         name: 'Alex Pren',
       });
-    }, 5000);
+    }, 3000);
   });
 };
 

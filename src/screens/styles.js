@@ -17,4 +17,8 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1.0,
     borderTopWidth: 1.0,
   },
+  buttonSign: {
+    marginLeft: 10,
+    marginRight: 10,
+  },
 });
