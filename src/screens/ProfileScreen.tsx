@@ -1,11 +1,12 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import Profile from '../components/Profile/Profile';
 
 const ProfileScreen = () => {
   return (
-    <View>
-      <Text>404 Error: Page not found :(</Text>
-    </View>
+    <>
+      <Profile />
+    </>
   );
 };
 
