@@ -1,25 +1,23 @@
-import {StyleSheet, Text, View, FlatList} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import Email from './Email';
 
 const EmailList = ({emails}) => {
   return (
-    <FlatList
-      contentContainerStyle={styles.emailContainer}
-      data={emails}
-      renderItem={list => {
-        const {email, id, name} = list.item;
-
-        return (
-          <Email
-            key={`email-${id}`}
-            index={list.index}
-            name={name}
-            email={email}
-          />
-        );
-      }}
-    />
+    <View style={styles.emailContainer}>
+      {emails &&
+        emails.map((list, index) => {
+          const {id, name, email} = list;
+          return (
+            <Email
+              key={`email-${id}`}
+              index={index}
+              name={name}
+              email={email}
+            />
+          );
+        })}
+    </View>
   );
 };
 
