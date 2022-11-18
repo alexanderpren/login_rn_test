@@ -1,11 +1,11 @@
-import {StyleSheet, Text, ScrollView, View} from 'react-native';
+import {StyleSheet, Text, ScrollView, View, SafeAreaView} from 'react-native';
 import React from 'react';
 import contactData from '../../mocks/profile.json';
 import {Card} from 'react-native-paper';
 import Header from './Header';
+import Phone from './Phone';
 
 const Profile = () => {
-  console.log(contactData.address);
   return (
     <ScrollView style={styles.scroll}>
       <View style={styles.container}>
@@ -16,6 +16,7 @@ const Profile = () => {
             name={contactData.name}
             address={contactData.address}
           />
+          <Phone tels={contactData.tels} />
         </Card>
       </View>
     </ScrollView>
@@ -37,5 +38,6 @@ const styles = StyleSheet.create({
   },
   scroll: {
     backgroundColor: '#FFF',
+    flex: 1,
   },
 });

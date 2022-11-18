@@ -20,3 +20,11 @@ export const getDataPhotos = async page => {
 
   return data;
 };
+
+export const getLocationFromMaps = async (latitude, longitude) => {
+  const response = await axios.get(
+    `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&sensor=true&key=${Config.API_MAPS}`,
+  );
+
+  return response.data.results;
+};

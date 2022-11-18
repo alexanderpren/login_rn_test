@@ -1,23 +1,36 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import {StyleSheet, Text, View, Alert, Button} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
+import Config from 'react-native-config';
+import LocationText from './LocationText';
 
 export default function GetCurrentLocation() {
+  const [position, setPosition] = useState();
   const getCurrentPosition = () => {
     Geolocation.getCurrentPosition(
       pos => {
-        setPosition(JSON.stringify(pos));
+        const input = {};
+        input.latitude = pos.coords.latitude;
+        input.longitude = pos.coords.longitude;
+        setPosition(input);
       },
       error => Alert.alert('GetCurrentPosition Error', JSON.stringify(error)),
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
     );
   };
 
-  const [position, setPosition] = useState('');
+  useEffect(() => {
+    getCurrentPosition();
+  }, []);
 
   return (
     <View>
-      <Text>TODO get location</Text>
+      {position && (
+        <LocationText
+          latitude={position.latitude}
+          longitude={position.longitude}
+        />
+      )}
     </View>
   );
 }
