@@ -7,6 +7,7 @@ import {
   launchCamera,
   launchImageLibrary,
 } from 'react-native-image-picker';
+import FastImage from 'react-native-fast-image';
 
 export default function UploadImage({avatarDefault}) {
   const [imageUser, setImageUser] = useState(avatarDefault);
@@ -61,7 +62,12 @@ export default function UploadImage({avatarDefault}) {
   };
   return (
     <View style={styles.container}>
-      {imageUser && <Image source={{uri: imageUser}} style={styles.avatar} />}
+      {imageUser && (
+        <FastImage
+          source={{uri: imageUser, priority: FastImage.priority.normal}}
+          style={styles.avatar}
+        />
+      )}
       <View style={styles.uploadBtnContainer}>
         <TouchableOpacity onPress={handleImageUser} style={styles.uploadBtn}>
           <Icon name={'camera'} size={30} color={'blue'} />

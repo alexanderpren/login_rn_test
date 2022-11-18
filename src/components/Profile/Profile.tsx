@@ -4,22 +4,30 @@ import contactData from '../../mocks/profile.json';
 import {Card} from 'react-native-paper';
 import Header from './Header';
 import Phone from './Phone';
+import Info from './Info';
+import Separator from '../Separator';
+import EmailList from './ListEmail';
 
 const Profile = () => {
   return (
-    <ScrollView style={styles.scroll}>
-      <View style={styles.container}>
-        <Card style={styles.cardContainer}>
-          <Header
-            avatar={contactData.avatar}
-            avatarBackground={contactData.avatarBackground}
-            name={contactData.name}
-            address={contactData.address}
-          />
-          <Phone tels={contactData.tels} />
-        </Card>
-      </View>
-    </ScrollView>
+    <>
+      <ScrollView style={styles.scroll} nestedScrollEnabled={true}>
+        <View style={styles.container}>
+          <Card style={styles.cardContainer}>
+            <Header
+              avatar={contactData.avatar}
+              avatarBackground={contactData.avatarBackground}
+              name={contactData.name}
+              address={contactData.address}
+            />
+            <Info />
+          </Card>
+        </View>
+        <Phone tels={contactData.tels} />
+        <EmailList emails={contactData.emails} />
+        <Separator />
+      </ScrollView>
+    </>
   );
 };
 

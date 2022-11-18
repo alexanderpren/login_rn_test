@@ -1,4 +1,4 @@
-import {StyleSheet, FlatList, SafeAreaView} from 'react-native';
+import {StyleSheet, FlatList, SafeAreaView, ScrollView} from 'react-native';
 import React from 'react';
 import Tel from './Tel';
 
@@ -9,12 +9,11 @@ const Phone = ({tels}) => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <FlatList
-        nestedScrollEnabled
+        nestedScrollEnabled={true}
         contentContainerStyle={styles.telContainer}
         data={tels}
         renderItem={list => {
           const {id, name, number} = list.item;
-
           return (
             <Tel
               key={`tel-${id}`}
@@ -39,7 +38,7 @@ const styles = StyleSheet.create({
   },
   telContainer: {
     backgroundColor: '#FFF',
-    flex: 1,
+
     paddingTop: 30,
     marginLeft: 30,
   },

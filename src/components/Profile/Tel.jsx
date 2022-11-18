@@ -42,8 +42,8 @@ const Tel = ({index, name, number, onPressSms, onPressTel}) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',
-    marginBottom: 25,
+    justifyContent: 'flex-end',
+    marginBottom: 20,
   },
   iconRow: {
     flex: 2,
